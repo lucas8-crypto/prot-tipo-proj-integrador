@@ -1,0 +1,44 @@
+CREATE DATABASE fablab_os;
+USE fablab_os;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    tipo ENUM('funcionario', 'admin') NOT NULL DEFAULT 'funcionario',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE ordens_servico (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    tipo_solicitante ENUM('interno', 'externo') NOT NULL,
+    setor_interno VARCHAR(50) NULL,
+    solicitante_externo VARCHAR(150) NULL,
+    contato VARCHAR(120) NULL,
+
+    nome_projeto VARCHAR(150) NOT NULL,
+    descricao_projeto TEXT NOT NULL,
+    medida_final VARCHAR(100) NULL,
+    quantidade INT NOT NULL,
+
+    manipulacao_arquivo BOOLEAN NOT NULL DEFAULT 0,
+
+    processos TEXT NULL,
+    materiais TEXT NULL,
+
+    observacoes TEXT NULL,
+
+    status ENUM('pendente', 'aprovada', 'recusada', 'finalizada') NOT NULL DEFAULT 'pendente',
+    coordenador_nome VARCHAR(100) NULL,
+    motivo_recusa TEXT NULL,
+
+    data_lancamento DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    data_autorizacao DATETIME NULL,
+    data_conclusao DATETIME NULL,
+
+    usuario_id INT NOT NULL,
+
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
