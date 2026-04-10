@@ -42,3 +42,7 @@ CREATE TABLE ordens_servico (
 
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
+
+// adicionar exclusão
+ALTER TABLE usuarios
+ADD COLUMN ativo BOOLEAN NOT NULL DEFAULT 1;
