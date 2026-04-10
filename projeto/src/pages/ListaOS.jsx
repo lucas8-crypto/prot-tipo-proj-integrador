@@ -54,9 +54,11 @@ export default function ListaOS() {
           </div>
 
           <div className="topo-acoes">
-            <button type="button" onClick={() => navigate("/ordens/nova")}>
-              Nova OS
-            </button>
+            {usuarioLogado?.tipo !== "admin" && (
+              <button type="button" onClick={() => navigate("/ordens/nova")}>
+                Nova OS
+              </button>
+            )}
 
             {usuarioLogado?.tipo === "admin" && (
               <button type="button" onClick={() => navigate("/usuarios/novo")}>

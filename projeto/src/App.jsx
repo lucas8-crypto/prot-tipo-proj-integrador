@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import CadastroUsuario from "./pages/CadastroUsuario";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
+import FuncionarioRoute from "./components/FuncionarioRoute";
 import "./App.css";
 
 export default function App() {
@@ -26,9 +27,9 @@ export default function App() {
       <Route
         path="/ordens/nova"
         element={
-          <PrivateRoute>
+          <FuncionarioRoute>
             <CadastroOS />
-          </PrivateRoute>
+          </FuncionarioRoute>
         }
       />
 
