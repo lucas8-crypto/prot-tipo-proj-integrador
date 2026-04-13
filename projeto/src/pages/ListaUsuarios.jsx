@@ -100,7 +100,11 @@ export default function ListaUsuarios() {
                     <td>{usuario.nome}</td>
                     <td>{usuario.email}</td>
                     <td>{usuario.tipo}</td>
-                    <td>{usuario.ativo ? "Ativo" : "Inativo"}</td>
+                    <td>
+                      <span className={usuario.ativo ? "status-ativo" : "status-inativo"}>
+                        {usuario.ativo ? "Ativo" : "Inativo"}
+                      </span>
+                    </td>
                     <td>
                       {usuario.created_at
                         ? new Date(usuario.created_at).toLocaleString("pt-BR")

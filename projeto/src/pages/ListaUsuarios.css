@@ -78,6 +78,25 @@
   tbody tr:hover {
     background-color: #fafafa;
   }
+
+.status-ativo,
+.status-inativo {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-ativo {
+  background-color: #e6f4ea;
+  color: #1f7a3d;
+}
+
+.status-inativo {
+  background-color: #fbe9e7;
+  color: #b23b2a;
+}
   
   .acoes-tabela {
     display: flex;
