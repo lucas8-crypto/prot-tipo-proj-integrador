@@ -10,19 +10,23 @@ import EditarUsuario from "./pages/EditarUsuario";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
 import FuncionarioRoute from "./components/FuncionarioRoute";
+import HomeRedirect from "./components/HomeRedirect";
 import "./App.css";
+
 
 export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/" element={<HomeRedirect />} />
+      
 
       <Route
-        path="/"
+        path="/ordens"
         element={
-          <PrivateRoute>
+          <FuncionarioRoute>
             <ListaOS />
-          </PrivateRoute>
+          </FuncionarioRoute>
         }
       />
 
@@ -38,18 +42,18 @@ export default function App() {
       <Route
         path="/ordens/:id"
         element={
-          <PrivateRoute>
+          <FuncionarioRoute>
             <DetalheOS />
-          </PrivateRoute>
+          </FuncionarioRoute>
         }
       />
 
       <Route
         path="/ordens/:id/editar"
         element={
-          <PrivateRoute>
+          <FuncionarioRoute>
             <EditarOS />
-          </PrivateRoute>
+          </FuncionarioRoute>
         }
       />
 

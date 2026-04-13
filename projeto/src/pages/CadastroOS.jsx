@@ -333,7 +333,12 @@ export default function App() {
           onChange={(e) => setObservacoes(e.target.value)}
         />
 
-        <button type="submit">Salvar OS</button>
+        <div className="acoes-cadastro-os">
+          <button type="submit">Salvar OS</button>
+          <button type="button" onClick={() => navigate("/ordens")}>
+            Voltar
+          </button>
+        </div>
       </form>
     </div>
   );

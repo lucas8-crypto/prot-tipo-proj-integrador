@@ -13,6 +13,12 @@ export default function ListaUsuarios() {
     carregarUsuarios();
   }, []);
 
+  function handleLogout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("usuario");
+    navigate("/login");
+  }
+
   async function carregarUsuarios() {
     try {
       const resposta = await api.get("/usuarios");
@@ -67,8 +73,8 @@ export default function ListaUsuarios() {
               Novo Usuário
             </button>
 
-            <button type="button" onClick={() => navigate("/")}>
-              Voltar
+            <button type="button" onClick={handleLogout}>
+              Sair
             </button>
           </div>
         </div>
