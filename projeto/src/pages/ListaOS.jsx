@@ -115,7 +115,11 @@ export default function ListaOS() {
                   <tr key={os.id}>
                     <td>{os.id}</td>
                     <td>{os.nome_projeto}</td>
-                    <td>{os.status}</td>
+                    <td>
+                      <span className={`status-os status-${os.status}`}>
+                        {os.status}
+                      </span>
+                    </td>
                     <td>{new Date(os.data_lancamento).toLocaleString("pt-BR")}</td>
                     <td>
                       <button

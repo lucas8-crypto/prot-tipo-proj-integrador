@@ -122,3 +122,32 @@ td {
 tbody tr:hover {
   background-color: #fafafa;
 }
+
+.status-os {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pendente {
+  background-color: #fff8e1;
+  color: #a67c00;
+}
+
+.status-recusada {
+  background-color: #fbe9e7;
+  color: #b23b2a;
+}
+
+.status-aprovada {
+  background-color: #e6f4ea;
+  color: #1f7a3d;
+}
+
+.status-finalizada {
+  background-color: #e8f1fd;
+  color: #1f5fa8;
+}
