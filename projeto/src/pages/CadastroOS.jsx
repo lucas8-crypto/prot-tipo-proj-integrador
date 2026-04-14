@@ -128,7 +128,7 @@ export default function App() {
       navigate("/");
     } catch (error) {
       console.error(error);
-      alert("Erro ao cadastrar ordem de serviço");
+      alert(error?.response?.data?.erro || "Erro ao cadastrar ordem de serviço");
     }
   };
 
