@@ -144,7 +144,9 @@ export default function App() {
       
         <h3>Dados do Solicitante</h3>
 
-        <label>Tipo de solicitante:</label>
+        <label>
+          Tipo de solicitante <span className="campo-obrigatorio">*</span>
+        </label>
         <select
           value={tipoSolicitante}
           onChange={(e) => setTipoSolicitante(e.target.value)}
@@ -157,7 +159,7 @@ export default function App() {
 
         {tipoSolicitante === "interno" && (
           <>
-            <label>Setor interno:</label>
+            <label>Setor interno: <span className="campo-obrigatorio">*</span></label>
             <select
               value={setorInterno}
               onChange={(e) => setSetorInterno(e.target.value)}
@@ -174,7 +176,7 @@ export default function App() {
 
         {tipoSolicitante === "externo" && (
           <>
-            <label>Solicitante externo:</label>
+            <label>Solicitante externo: <span className="campo-obrigatorio">*</span></label>
             <input
               type="text"
               value={solicitanteExterno}
@@ -184,7 +186,7 @@ export default function App() {
           </>
         )}
 
-        <label>Contato:</label>
+        <label>Contato (opcional):</label>
         <input
           type="text"
           value={contato}
@@ -193,7 +195,7 @@ export default function App() {
 
         <h3>Dados do Projeto</h3>
 
-        <label>Nome do projeto:</label>
+        <label>Nome do projeto <span className="campo-obrigatorio">*</span></label>
         <input
           type="text"
           value={nomeProjeto}
@@ -201,21 +203,21 @@ export default function App() {
           required
         />
 
-        <label>Descrição do projeto:</label>
+        <label>Descrição do projeto: <span className="campo-obrigatorio">*</span></label>
         <textarea
           value={descricaoProjeto}
           onChange={(e) => setDescricaoProjeto(e.target.value)}
           required
         />
 
-        <label>Medida final:</label>
+        <label>Medida final: <span className="campo-obrigatorio">*</span></label>
         <input
           type="text"
           value={medidaFinal}
           onChange={(e) => setMedidaFinal(e.target.value)}
         />
 
-        <label>Quantidade:</label>
+        <label>Quantidade: <span className="campo-obrigatorio">*</span></label>
         <input
           type="number"
           min="1"
@@ -231,7 +233,7 @@ export default function App() {
 
         <h3>Arquivo</h3>
 
-        <label>Necessita manipulação do arquivo?</label>
+        <label>Necessita manipulação do arquivo? <span className="campo-obrigatorio">*</span></label>
         <select
           value={manipulacaoArquivo}
           onChange={(e) => setManipulacaoArquivo(e.target.value)}
@@ -242,7 +244,7 @@ export default function App() {
           <option value="0">Não</option>
         </select>
 
-        <h3>Processos Envolvidos</h3>
+        <h3>Processos Envolvidos <span className="campo-obrigatorio">*</span></h3>
 
         {listaProcessos.map((processo) => (
           <div key={processo}>
@@ -277,7 +279,7 @@ export default function App() {
 
         {outroProcesso && (
           <>
-            <label>Informe outro processo:</label>
+            <label>Informe outro processo: <span className="campo-obrigatorio">*</span></label>
             <input
               type="text"
               value={textoOutroProcesso}
@@ -287,7 +289,7 @@ export default function App() {
           </>
         )}
 
-        <h3>Materiais Utilizados</h3>
+        <h3>Materiais Utilizados <span className="campo-obrigatorio">*</span></h3>
 
         {listaMateriais.map((material) => (
           <div key={material}>
@@ -322,7 +324,7 @@ export default function App() {
 
         {outroMaterial && (
           <>
-            <label>Informe outro material:</label>
+            <label>Informe outro material: <span className="campo-obrigatorio">*</span></label>
             <input
               type="text"
               value={textoOutroMaterial}
@@ -332,7 +334,7 @@ export default function App() {
           </>
         )}
 
-        <h3>Observações</h3>
+        <h3>Observações (opcional):</h3>
         <textarea
           value={observacoes}
           onChange={(e) => setObservacoes(e.target.value)}
