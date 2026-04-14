@@ -176,7 +176,12 @@ export default function EditarOS() {
   return (
     <div className="container-os">
       <form onSubmit={handleSubmit}>
-        <h2>Editar Ordem de Serviço</h2>
+        <div className="topo-cadastro-os">
+          <h2>Editar Ordem de Serviço</h2>
+          <button type="button" onClick={() => navigate(`/ordens/${id}`)}>
+            Voltar
+          </button>
+        </div>
 
         <h3>Dados do Solicitante</h3>
 
