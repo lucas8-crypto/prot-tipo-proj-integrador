@@ -25,8 +25,8 @@ CREATE TABLE ordens_servico (
 
     manipulacao_arquivo BOOLEAN NOT NULL DEFAULT 0,
 
-    processos TEXT NULL,
-    materiais TEXT NULL,
+    processos TEXT NOT NULL,
+    materiais TEXT NOT NULL,
 
     observacoes TEXT NULL,
 
@@ -43,6 +43,5 @@ CREATE TABLE ordens_servico (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
-// adicionar exclusão
 ALTER TABLE usuarios
 ADD COLUMN ativo BOOLEAN NOT NULL DEFAULT 1;

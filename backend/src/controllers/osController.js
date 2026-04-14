@@ -36,10 +36,6 @@ const criarOS = async (req, res) => {
       return res.status(400).json({ erro: "Solicitante externo é obrigatório" });
     }
 
-    if (!contato || !String(contato).trim()) {
-      return res.status(400).json({ erro: "Contato é obrigatório" });
-    }
-
     if (!nome_projeto || !nome_projeto.trim()) {
       return res.status(400).json({ erro: "Nome do projeto é obrigatório" });
     }
@@ -77,7 +73,7 @@ const criarOS = async (req, res) => {
       setor_interno: tipo_solicitante === "interno" ? setor_interno : null,
       solicitante_externo:
         tipo_solicitante === "externo" ? solicitante_externo.trim() : null,
-      contato: String(contato).trim(),
+      contato: contato && String(contato).trim() ? String(contato).trim() : null,
       nome_projeto: nome_projeto.trim(),
       descricao_projeto: descricao_projeto.trim(),
       medida_final: String(medida_final).trim(),
