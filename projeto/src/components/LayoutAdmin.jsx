@@ -2,6 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import AdminRoute from "./AdminRoute";
+import "../App.css";
 
 export default function LayoutAdmin() {
   const navigate = useNavigate();
@@ -14,13 +15,15 @@ export default function LayoutAdmin() {
 
   return (
     <AdminRoute>
-      <Header onLogout={handleLogout} />
+      <div className="app-layout">
+        <Header onLogout={handleLogout} />
 
-      <main>
-        <Outlet />
-      </main>
+        <main className="app-main">
+          <Outlet />
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </AdminRoute>
   );
 }
