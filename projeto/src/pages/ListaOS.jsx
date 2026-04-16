@@ -113,7 +113,7 @@ export default function ListaOS() {
           </div>
 
           <div className="campo-filtro">
-            <label>Filtrar por data</label>
+            <label>Filtrar por data de lançamento</label>
             <input
               type="date"
               value={filtroData}
