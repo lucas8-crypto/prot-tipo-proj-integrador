@@ -31,10 +31,7 @@ export default function Login() {
   }
 
   return (
-    <div
-      className="container-login"
-      style={{ backgroundImage: `url(${imagemFundo})` }}
-    >
+    <div className="container-login">
       <div className="overlay-login">
         <form className="form-login" onSubmit={handleLogin}>
           <h2>Login</h2>

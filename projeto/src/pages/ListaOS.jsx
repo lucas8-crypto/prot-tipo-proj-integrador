@@ -7,6 +7,7 @@ export default function ListaOS() {
   const [ordens, setOrdens] = useState([]);
   const [filtroProjeto, setFiltroProjeto] = useState("");
   const [filtroStatus, setFiltroStatus] = useState("");
+  const [filtroData, setFiltroData] = useState("");
 
   const navigate = useNavigate();
 
@@ -32,14 +33,28 @@ export default function ListaOS() {
     navigate("/login");
   }
 
+  function formatarDataParaInput(dataString) {
+    const data = new Date(dataString);
+  
+    const ano = data.getFullYear();
+    const mes = String(data.getMonth() + 1).padStart(2, "0");
+    const dia = String(data.getDate()).padStart(2, "0");
+  
+    return `${ano}-${mes}-${dia}`;
+  }
+
   const ordensFiltradas = ordens.filter((os) => {
     const projetoOk = os.nome_projeto
       .toLowerCase()
       .includes(filtroProjeto.toLowerCase());
-
+  
     const statusOk = filtroStatus ? os.status === filtroStatus : true;
-
-    return projetoOk && statusOk;
+  
+    const dataOk = filtroData
+      ? formatarDataParaInput(os.data_lancamento) === filtroData
+      : true;
+  
+    return projetoOk && statusOk && dataOk;
   });
 
   return (
@@ -95,6 +110,15 @@ export default function ListaOS() {
               <option value="recusada">Recusada</option>
               <option value="finalizada">Finalizada</option>
             </select>
+          </div>
+
+          <div className="campo-filtro">
+            <label>Filtrar por data</label>
+            <input
+              type="date"
+              value={filtroData}
+              onChange={(e) => setFiltroData(e.target.value)}
+            />
           </div>
         </div>
 
